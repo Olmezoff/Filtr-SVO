@@ -713,13 +713,10 @@ questions.forEach((q, index) => {
 
 // 4. Логика фильтрации
 function filterServices() {
-  // Собираем выбранные параметры
   const selectedParams = [];
   questions.forEach((q, index) => {
     const checkbox = document.getElementById('q_' + index);
-    if (checkbox.checked) {
-      selectedParams.push(q);
-    }
+    if (checkbox.checked) selectedParams.push(q);
   });
 
   const list = document.getElementById('servicesList');
@@ -730,26 +727,23 @@ function filterServices() {
     return;
   }
 
-  // Фильтруем услуги
-  const matched = services.filter(service => {
-    return selectedParams.some(param => service.params[param]);
-  });
+  const matched = services.filter(service =>
+    selectedParams.some(param => service.params[param])
+  );
 
   if (matched.length === 0) {
     list.innerHTML = '<div class="service-item">Подходящих услуг не найдено.</div>';
     return;
   }
 
-  // Выводим услуги
   matched.forEach((service, idx) => {
     const div = document.createElement('div');
     div.className = 'service-item';
     div.textContent = (idx + 1) + '. ' + service.name;
     list.appendChild(div);
   });
-  doc.setFont("Roboto-Regular", "normal");
 
-  // 👉 ДОБАВЛЯЕМ КНОПКУ PDF В КОНЕЦ СПИСКА
+  // 👉 Добавляем кнопку PDF
   const pdfBtn = document.createElement("button");
   pdfBtn.id = "downloadPdfBtn";
   pdfBtn.textContent = "Скачать PDF";
@@ -763,11 +757,13 @@ document.addEventListener("click", function(e) {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
 
+        doc.setFont("Roboto-Regular", "normal");
+
         const list = document.getElementById("servicesList");
         const serviceItems = list.querySelectorAll(".service-item");
 
         if (serviceItems.length === 0) {
-            alert("Нет услуг для экспорта. Сначала выполните фильтрацию.");
+            alert("Нет услуг для экспорта.");
             return;
         }
 
