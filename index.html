@@ -748,12 +748,12 @@ function filterServices() {
     div.textContent = (idx + 1) + '. ' + service.name;
     list.appendChild(div);
     // Добавляем кнопку PDF
-const pdfBtn = document.createElement("button");
-pdfBtn.id = "downloadPdfBtn";
-pdfBtn.textContent = "Скачать PDF";
-pdfBtn.style.marginTop = "20px";
-pdfBtn.style.width = "100%";
-list.appendChild(pdfBtn);
+    const pdfBtn = document.createElement("button");
+    pdfBtn.id = "downloadPdfBtn";
+    pdfBtn.textContent = "Скачать PDF";
+    pdfBtn.style.marginTop = "20px";
+    pdfBtn.style.width = "100%";
+    list.appendChild(pdfBtn);
   });
 }
 document.addEventListener("click", function(e) {
