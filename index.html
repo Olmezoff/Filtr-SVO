@@ -747,17 +747,6 @@ function filterServices() {
     div.className = 'service-item';
     div.textContent = (idx + 1) + '. ' + service.name;
     list.appendChild(div);
-   
-    // Добавляем кнопку PDF, если есть результаты
-if (filteredServices.length > 0) {
-    const pdfBtn = document.createElement("button");
-    pdfBtn.id = "downloadPdfBtn";
-    pdfBtn.textContent = "Скачать PDF";
-    pdfBtn.style.marginTop = "20px";
-    pdfBtn.style.width = "100%";
-
-    resultsDiv.appendChild(pdfBtn);
-}
   });
 }
 document.getElementById("downloadPdfBtn").addEventListener("click", () => {
