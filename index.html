@@ -730,7 +730,7 @@ function filterServices() {
     return;
   }
 
-  // Фильтруем услуги: хотя бы одно совпадение по параметру
+  // Фильтруем услуги
   const matched = services.filter(service => {
     return selectedParams.some(param => service.params[param]);
   });
@@ -740,14 +740,22 @@ function filterServices() {
     return;
   }
 
-  // Выводим список услуг
+  // Выводим услуги
   matched.forEach((service, idx) => {
     const div = document.createElement('div');
     div.className = 'service-item';
     div.textContent = (idx + 1) + '. ' + service.name;
     list.appendChild(div);
-    });
-  }
+  });
+
+  // 👉 ДОБАВЛЯЕМ КНОПКУ PDF В КОНЕЦ СПИСКА
+  const pdfBtn = document.createElement("button");
+  pdfBtn.id = "downloadPdfBtn";
+  pdfBtn.textContent = "Скачать PDF";
+  pdfBtn.style.marginTop = "20px";
+  pdfBtn.style.width = "100%";
+  list.appendChild(pdfBtn);
+}
 document.addEventListener("click", function(e) {
     if (e.target && e.target.id === "downloadPdfBtn") {
 
