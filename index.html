@@ -759,6 +759,8 @@ document.addEventListener("click", function(e) {
 
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
+        
+        doc.addFont("Roboto-Regular-normal.ttf", "Roboto-Regular", "normal");
 
         doc.setFont("Roboto-Regular", "normal");
 
@@ -804,6 +806,5 @@ document.addEventListener("click", function(e) {
 
 <!-- 🔹 КИРИЛЛИЧЕСКИЙ ШРИФТ -->
 <script src="https://rawcdn.githack.com/MrRio/jsPDF/master/examples/fonts/Roboto-Regular-normal.js"></script>
-
 </body>
 </html>
