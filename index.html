@@ -710,7 +710,7 @@ questions.forEach((q, index) => {
   `;
   questionsContainer.appendChild(div);
 });
-
+<script>
 // 4. Логика фильтрации
 function filterServices() {
   const selectedParams = [];
@@ -742,8 +742,7 @@ function filterServices() {
     div.textContent = (idx + 1) + '. ' + service.name;
     list.appendChild(div);
   });
-<script>
-  // 👉 Добавляем кнопку PDF
+    // 👉 Добавляем кнопку PDF
   const pdfBtn = document.createElement("button");
   pdfBtn.id = "downloadPdfBtn";
   pdfBtn.textContent = "Скачать PDF";
