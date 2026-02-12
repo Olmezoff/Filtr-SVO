@@ -742,7 +742,7 @@ function filterServices() {
     div.textContent = (idx + 1) + '. ' + service.name;
     list.appendChild(div);
   });
-
+<script>
   // 👉 Добавляем кнопку PDF
   const pdfBtn = document.createElement("button");
   pdfBtn.id = "downloadPdfBtn";
@@ -801,5 +801,6 @@ document.addEventListener("click", function(e) {
 
 <!-- 🔹 КИРИЛЛИЧЕСКИЙ ШРИФТ (ставим ПОСЛЕ jsPDF) -->
 <script src="https://rawcdn.githack.com/MrRio/jsPDF/master/examples/fonts/Roboto-Regular-normal.js"></script>
+
 </body>
 </html>
