@@ -69,7 +69,6 @@
 <div id="questions"></div>
 
 <button class="btn" onclick="filterServices()">Показать доступные услуги</button>
-<button id="downloadPdfBtn">Скачать PDF</button>
   
 <div class="result">
   <h2>Подходящие услуги:</h2>
@@ -754,10 +753,18 @@ function filterServices() {
     pdfBtn.style.marginTop = "20px";
     pdfBtn.style.width = "100%";
     list.appendChild(pdfBtn);
+    // Добавляем кнопку PDF
+    const pdfBtn = document.createElement("button");
+    pdfBtn.id = "downloadPdfBtn";
+    pdfBtn.textContent = "Скачать PDF";
+    pdfBtn.style.marginTop = "20px";
+    pdfBtn.style.width = "100%";
+    list.appendChild(pdfBtn);
   });
 }
 document.addEventListener("click", function(e) {
     if (e.target && e.target.id === "downloadPdfBtn") {
+
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
 
@@ -772,7 +779,7 @@ document.addEventListener("click", function(e) {
         let y = 10;
 
         doc.setFontSize(14);
-        doc.text("Подходящие услуги:", 10, y);
+        doc.text("Подобранные услуги:", 10, y);
         y += 10;
 
         doc.setFontSize(12);
