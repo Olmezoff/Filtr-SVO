@@ -710,6 +710,8 @@ questions.forEach((q, index) => {
   `;
   questionsContainer.appendChild(div);
 });
+<!-- 🔹 ТВОЙ ОСНОВНОЙ КОД -->
+<script>
 // 4. Логика фильтрации
 function filterServices() {
   const selectedParams = [];
@@ -741,7 +743,8 @@ function filterServices() {
     div.textContent = (idx + 1) + '. ' + service.name;
     list.appendChild(div);
   });
-    // 👉 Добавляем кнопку PDF
+
+  // 👉 Добавляем кнопку PDF
   const pdfBtn = document.createElement("button");
   pdfBtn.id = "downloadPdfBtn";
   pdfBtn.textContent = "Скачать PDF";
@@ -749,6 +752,8 @@ function filterServices() {
   pdfBtn.style.width = "100%";
   list.appendChild(pdfBtn);
 }
+
+// 👉 Обработчик кнопки PDF
 document.addEventListener("click", function(e) {
     if (e.target && e.target.id === "downloadPdfBtn") {
 
@@ -797,8 +802,7 @@ document.addEventListener("click", function(e) {
 <!-- 🔹 jsPDF библиотека -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-<!-- 🔹 КИРИЛЛИЧЕСКИЙ ШРИФТ (ставим ПОСЛЕ jsPDF) -->
+<!-- 🔹 КИРИЛЛИЧЕСКИЙ ШРИФТ -->
 <script src="https://rawcdn.githack.com/MrRio/jsPDF/master/examples/fonts/Roboto-Regular-normal.js"></script>
-
 </body>
 </html>
