@@ -759,6 +759,8 @@ document.addEventListener("click", function(e) {
 
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
+        doc.addFont("Roboto-Regular-normal.ttf", "Roboto-Regular", "normal");
+        doc.setFont("Roboto-Regular", "normal");
 
         const list = document.getElementById("servicesList");
         const serviceItems = list.querySelectorAll(".service-item");
