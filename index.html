@@ -695,7 +695,9 @@ params: {
 }
 ];
 
-// 3. Рендерим вопросы (чекбоксы)
+<!-- 🔹 ТВОЙ ОСНОВНОЙ КОД -->
+<script>
+  // 3. Рендерим вопросы (чекбоксы)
 const questionsContainer = document.getElementById('questions');
 
 questions.forEach((q, index) => {
@@ -710,8 +712,6 @@ questions.forEach((q, index) => {
   `;
   questionsContainer.appendChild(div);
 });
-<!-- 🔹 ТВОЙ ОСНОВНОЙ КОД -->
-<script>
 // 4. Логика фильтрации
 function filterServices() {
   const selectedParams = [];
