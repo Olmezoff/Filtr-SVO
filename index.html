@@ -697,7 +697,8 @@ params: {
 
 <!-- 🔹 ТВОЙ ОСНОВНОЙ КОД -->
 <script>
-  // 3. Рендерим вопросы (чекбоксы)
+ <script>
+// 3. Рендерим вопросы (чекбоксы)
 const questionsContainer = document.getElementById('questions');
 
 questions.forEach((q, index) => {
@@ -712,7 +713,7 @@ questions.forEach((q, index) => {
   `;
   questionsContainer.appendChild(div);
 });
-  
+
 // 4. Логика фильтрации
 function filterServices() {
   const selectedParams = [];
@@ -753,16 +754,13 @@ function filterServices() {
   pdfBtn.style.width = "100%";
   list.appendChild(pdfBtn);
 }
+
 // 👉 Обработчик кнопки PDF
 document.addEventListener("click", function(e) {
     if (e.target && e.target.id === "downloadPdfBtn") {
 
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
-        
-        doc.addFont("Roboto-Regular-normal.ttf", "Roboto-Regular", "normal");
-
-        doc.setFont("Roboto-Regular", "normal");
 
         const list = document.getElementById("servicesList");
         const serviceItems = list.querySelectorAll(".service-item");
@@ -786,7 +784,6 @@ document.addEventListener("click", function(e) {
             lines.forEach(line => {
                 if (y > 280) {
                     doc.addPage();
-                    doc.setFont("Roboto-Regular", "normal");
                     y = 10;
                 }
                 doc.text(line, 10, y);
@@ -801,10 +798,7 @@ document.addEventListener("click", function(e) {
 });
 </script>
 
-<!-- 🔹 jsPDF библиотека -->
+<!-- jsPDF -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-<!-- 🔹 КИРИЛЛИЧЕСКИЙ ШРИФТ -->
-<script src="https://rawcdn.githack.com/MrRio/jsPDF/master/examples/fonts/Roboto-Regular-normal.js"></script>
 </body>
 </html>
