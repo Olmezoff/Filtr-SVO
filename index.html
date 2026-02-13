@@ -712,6 +712,7 @@ questions.forEach((q, index) => {
   `;
   questionsContainer.appendChild(div);
 });
+  
 // 4. Логика фильтрации
 function filterServices() {
   const selectedParams = [];
@@ -751,6 +752,7 @@ function filterServices() {
   pdfBtn.style.marginTop = "20px";
   pdfBtn.style.width = "100%";
   list.appendChild(pdfBtn);
+}
 // 👉 Обработчик кнопки PDF
 document.addEventListener("click", function(e) {
     if (e.target && e.target.id === "downloadPdfBtn") {
