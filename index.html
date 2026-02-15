@@ -807,7 +807,7 @@ document.addEventListener("click", function(e) {
     const pdf = pdfMake.createPdf(docDefinition);
 
     if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
-      pdf.open();
+      pdf.open({}, window);
     } else {
       pdf.download("Перечень услуг.pdf");
     }
