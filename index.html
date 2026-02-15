@@ -807,10 +807,15 @@ document.addEventListener("click", function(e) {
     const pdf = pdfMake.createPdf(docDefinition);
 
     if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
-      pdf.open({}, window);
-    } else {
-      pdf.download("Перечень услуг.pdf");
-    }
+
+    pdf.getBlob(function(blob) {
+        const url = URL.createObjectURL(blob);
+        window.location.href = url; // открываем PDF в этой же вкладке
+    });
+
+} else {
+    pdf.download("Перечень услуг.pdf");
+}
   }
 });
 </script>
