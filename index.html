@@ -806,16 +806,17 @@ document.addEventListener("click", function(e) {
 
     const pdf = pdfMake.createPdf(docDefinition);
 
+    // 👉 Гибрид с надёжной мобильной поддержкой
     if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
 
-    pdf.getBlob(function(blob) {
+      pdf.getBlob(function(blob) {
         const url = URL.createObjectURL(blob);
-        window.location.href = url; // открываем PDF в этой же вкладке
-    });
+        window.location.href = url; // открываем PDF в текущей вкладке
+      });
 
-} else {
-    pdf.download("Перечень услуг.pdf");
-}
+    } else {
+      pdf.download("Перечень услуг.pdf");
+    }
   }
 });
 </script>
