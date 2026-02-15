@@ -809,7 +809,14 @@ document.addEventListener("click", function(e) {
       }
     };
 
-    pdfMake.createPdf(docDefinition).download("Перечень услуг.pdf");
+    const pdf = pdfMake.createPdf(docDefinition);
+
+    // 👉 ГИБРИД: телефоны открывают, ПК скачивает
+    if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
+      pdf.open(); // мобильные — открыть в новой вкладке
+    } else {
+      pdf.download("Перечень услуг.pdf"); // ПК — скачать
+    }
   }
 });
 </script>
