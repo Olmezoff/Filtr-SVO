@@ -212,6 +212,37 @@ h1 {
         font-size: 20px;
     }
 }
+/* ПК-версия: кнопки прокрутки по центру справа */
+@media (min-width: 900px) {
+    .scroll-buttons {
+        position: fixed;
+        right: 40px; /* можно подвинуть ближе/дальше */
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        z-index: 999;
+    }
+
+    .scroll-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 22px;
+    }
+}
+
+/* Мобильная версия остаётся как была */
+@media (max-width: 899px) {
+    .scroll-buttons {
+        position: fixed;
+        right: 15px;
+        bottom: 20px;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 999;
+    }
+}
 </style>
   </head>
 <body>
