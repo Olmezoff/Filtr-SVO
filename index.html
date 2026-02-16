@@ -807,11 +807,10 @@ function filterServices() {
 
   // 👉 Добавляем кнопку PDF
   const pdfBtn = document.createElement("button");
-  pdfBtn.id = "downloadPdfBtn";
-  pdfBtn.textContent = "Скачать PDF";
-  pdfBtn.style.marginTop = "20px";
-  pdfBtn.style.width = "100%";
-  list.appendChild(pdfBtn);
+pdfBtn.id = "downloadPdfBtn";
+pdfBtn.className = "btn";   // ← вот это главное
+pdfBtn.textContent = "Скачать PDF";
+list.appendChild(pdfBtn);
 }
 
 // 👉 Обработчик кнопки PDF
