@@ -206,10 +206,21 @@ h1 {
 }
 /* На ПК стрелки чуть меньше заметны */
 @media (min-width: 900px) {
+    .scroll-buttons {
+        position: fixed;
+        left: calc(50% + 420px); /* 800px/2 + 20px отступ */
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        z-index: 999;
+    }
+
     .scroll-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 22px;
     }
 }
 /* ПК-версия: кнопки прокрутки по центру справа */
