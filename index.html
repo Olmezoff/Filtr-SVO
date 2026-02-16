@@ -902,14 +902,7 @@ pdfBtn.id = "downloadPdfBtn";
 pdfBtn.className = "btn";   // ← вот это главное
 pdfBtn.textContent = "Скачать PDF";
 list.appendChild(pdfBtn);
-requestAnimationFrame(() => {
-  requestAnimationFrame(() => {
-    const target = document.querySelector(".result");
-    const y = target.getBoundingClientRect().top + window.scrollY - 10;
-    window.scrollTo({ top: y, behavior: "smooth" });
-  });
-});
-}
+  
 // ⭐ Абсолютно надёжный автоскролл
 requestAnimationFrame(() => {
   requestAnimationFrame(() => {
