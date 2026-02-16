@@ -909,23 +909,7 @@ requestAnimationFrame(() => {
     window.scrollTo({ top: y, behavior: "smooth" });
   });
 });
-}
-  
-// ⭐ Абсолютно надёжный автоскролл
-requestAnimationFrame(() => {
-  requestAnimationFrame(() => {
-    const target = document.getElementById("servicesList");
-    const y = target.getBoundingClientRect().top + window.scrollY - 20;
-    window.scrollTo({ top: y, behavior: "smooth" });
-  });
-});
-// Плавный скролл вниз к списку услуг
-setTimeout(() => {
-  const target = document.getElementById("servicesList");
-  const y = target.getBoundingClientRect().top + window.scrollY - 20;
-  window.scrollTo({ top: y, behavior: "smooth" });
-}, 100);
-  
+} 
 // Обработчик кнопки PDF
 document.addEventListener("click", function(e) {
   if (e.target && e.target.id === "downloadPdfBtn") {
