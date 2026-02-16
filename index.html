@@ -79,6 +79,25 @@ h2 {
     transform: scale(0.97); 
     box-shadow: 0 1px 3px rgba(0,0,0,0.2); 
 }
+.question label {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: background 0.25s ease, transform 0.15s ease;
+}
+
+.question input:checked + label {
+    background: #f4e7e4;
+    transform: scale(0.98);
+}
+
+.question input {
+    transition: transform 0.15s ease;
+}
+
+.question input:active {
+    transform: scale(0.85);
+}
 </style>
   </head>
 <body>
