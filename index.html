@@ -1021,24 +1021,12 @@ document.getElementById("scrollUp").addEventListener("click", () => {
 
 // Прокрутка вниз — к результатам
 document.getElementById("scrollDown").addEventListener("click", () => {
-  const lastItem = document.querySelector(".service-item:last-of-type");
-  if (lastItem) {
-    // Едем к последней услуге
-    const y = lastItem.getBoundingClientRect().bottom + window.scrollY - window.innerHeight + 20;
-    window.scrollTo({ top: y, behavior: "smooth" });
-    return;
-  }
+  const list = document.getElementById("servicesList");
 
-  const resultBlock = document.querySelector(".result");
-  if (resultBlock) {
-    // Если услуг нет, едем к блоку результатов
-    const y = resultBlock.getBoundingClientRect().top + window.scrollY - 10;
+  if (list) {
+    const y = list.scrollHeight + list.getBoundingClientRect().top + window.scrollY - window.innerHeight + 40;
     window.scrollTo({ top: y, behavior: "smooth" });
-    return;
   }
-
-  // На всякий случай — в самый низ страницы
-  window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
 });
   
 </script>
