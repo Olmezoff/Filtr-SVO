@@ -1021,9 +1021,24 @@ document.getElementById("scrollUp").addEventListener("click", () => {
 
 // Прокрутка вниз — к результатам
 document.getElementById("scrollDown").addEventListener("click", () => {
-  const target = document.querySelector(".result");
-  const y = target.getBoundingClientRect().top + window.scrollY - 10;
-  window.scrollTo({ top: y, behavior: "smooth" });
+  const lastItem = document.querySelector(".service-item:last-of-type");
+  if (lastItem) {
+    // Едем к последней услуге
+    const y = lastItem.getBoundingClientRect().bottom + window.scrollY - window.innerHeight + 20;
+    window.scrollTo({ top: y, behavior: "smooth" });
+    return;
+  }
+
+  const resultBlock = document.querySelector(".result");
+  if (resultBlock) {
+    // Если услуг нет, едем к блоку результатов
+    const y = resultBlock.getBoundingClientRect().top + window.scrollY - 10;
+    window.scrollTo({ top: y, behavior: "smooth" });
+    return;
+  }
+
+  // На всякий случай — в самый низ страницы
+  window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
 });
   
 </script>
