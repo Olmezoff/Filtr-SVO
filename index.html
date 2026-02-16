@@ -56,8 +56,8 @@ h2 {
 .btn {
     display: block;
     width: 100%;
-    max-width: 320px; /* 👉 ограничиваем ширину */
-    margin: 20px auto; /* 👉 центрируем */
+    max-width: 320px;
+    margin: 20px auto; 
     text-align: center;
     background: #ed5338;
     color: #fff;
@@ -76,8 +76,8 @@ h2 {
     box-shadow: 0 3px 6px rgba(0,0,0,0.15);
 }
 .btn:active {
-    transform: scale(0.97); /* лёгкое продавливание */
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2); /* тень уменьшается */
+    transform: scale(0.97); 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2); 
 }
 </style>
   </head>
@@ -810,7 +810,7 @@ function filterServices() {
     list.appendChild(div);
   });
 
-  // 👉 Добавляем кнопку PDF
+  // Кнопка пдф
   const pdfBtn = document.createElement("button");
 pdfBtn.id = "downloadPdfBtn";
 pdfBtn.className = "btn";   // ← вот это главное
@@ -818,7 +818,7 @@ pdfBtn.textContent = "Скачать PDF";
 list.appendChild(pdfBtn);
 }
 
-// 👉 Обработчик кнопки PDF
+// Обработчик кнопки PDF
 document.addEventListener("click", function(e) {
   if (e.target && e.target.id === "downloadPdfBtn") {
 
@@ -836,7 +836,7 @@ document.addEventListener("click", function(e) {
     serviceItems.forEach(item => {
       lines.push({ text: item.innerText, margin: [0, 5, 0, 0] });
     });
-  // Добавляем сноску
+  // Сноска
 lines.push({
   text: "\n*Информация предоставлена в ознакомительных целях. Для получения более подробной информации вы можете обратиться на горячую линию ГБУ «МФЦ КБР» по номеру 8 800 100 32-82.*",
   italics: true,
@@ -856,7 +856,7 @@ lines.push({
 
     const pdf = pdfMake.createPdf(docDefinition);
 
-    // 👉 Гибрид с надёжной мобильной поддержкой
+    // Гибрид для всех телефонов
     if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
 
       pdf.getBlob(function(blob) {
