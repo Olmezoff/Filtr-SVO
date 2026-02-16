@@ -871,7 +871,13 @@ pdfBtn.className = "btn";   // ← вот это главное
 pdfBtn.textContent = "Скачать PDF";
 list.appendChild(pdfBtn);
 }
-
+setTimeout(() => {
+    document.getElementById("resultsTitle").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}, 100);
+  
 // Обработчик кнопки PDF
 document.addEventListener("click", function(e) {
   if (e.target && e.target.id === "downloadPdfBtn") {
