@@ -136,8 +136,15 @@ h2 {
 /* Размер текста для ПК (экраны шире 900px) */
 @media (min-width: 900px) {
     body {
-        max-width: 800px;   /* ширина контента */
-        margin: 0 auto;     /* центрирование */
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    h2 {
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left; /* чтобы текст не был по центру */
     }
 
     .question label {
