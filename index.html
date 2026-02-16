@@ -172,6 +172,46 @@ h1 {
     margin-top: 5px;
     margin-bottom: 6px;
 }
+    
+/* Кнопки прокрутки */
+.scroll-buttons {
+    position: fixed;
+    right: 15px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 999;
+}
+
+.scroll-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: #ed5338;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.scroll-btn:hover {
+    background: #d9482f;
+}
+
+.scroll-btn:active {
+    transform: scale(0.92);
+}
+/* На ПК стрелки чуть меньше заметны */
+@media (min-width: 900px) {
+    .scroll-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+}
 </style>
   </head>
 <body>
@@ -205,6 +245,12 @@ h1 {
 
 <div class="result">
   <div id="servicesList"></div>
+</div>
+  
+<!-- Кнопки прокрутки -->
+<div class="scroll-buttons">
+  <button id="scrollUp" class="scroll-btn">▲</button>
+  <button id="scrollDown" class="scroll-btn">▼</button>
 </div>
   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
@@ -968,6 +1014,18 @@ lines.push({
     }
   }
 });
+// Прокрутка вверх
+document.getElementById("scrollUp").addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// Прокрутка вниз — к результатам
+document.getElementById("scrollDown").addEventListener("click", () => {
+  const target = document.querySelector(".result");
+  const y = target.getBoundingClientRect().top + window.scrollY - 10;
+  window.scrollTo({ top: y, behavior: "smooth" });
+});
+  
 </script>
 
 <!-- jsPDF -->
